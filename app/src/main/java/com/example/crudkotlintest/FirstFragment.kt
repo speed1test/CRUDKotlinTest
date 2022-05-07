@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.crudkotlintest.databinding.FragmentFirstBinding
+import androidx.room.Room
+import com.example.crudkotlintest.PruebaDao
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -35,10 +37,20 @@ class FirstFragment : Fragment() {
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+
+        binding.btn1.setOnClickListener{
+
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun obtenerPruebas()
+    {
+        val pruebas = PruebaEntity(tituloPrueba = "Prueba 1")
+        PruebaDao.getAllBooks()
     }
 }
